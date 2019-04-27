@@ -62,9 +62,18 @@
     <Compile Include="Create_Post.xaml.cs">
       <DependentUpon>Create_Post.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Frontpage.xaml.cs">
+      <DependentUpon>Frontpage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="loginWindow.xaml.cs">
+      <DependentUpon>loginWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Post.cs" />
     <Compile Include="PostWindow.xaml.cs">
       <DependentUpon>PostWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="signupWindow.xaml.cs">
+      <DependentUpon>signupWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Tadpole.cs" />
     <Compile Include="Upload.cs" />
@@ -76,6 +85,14 @@
       <DependentUpon>UserSettings.xaml</DependentUpon>
     </Compile>
     <Page Include="Create_Post.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Frontpage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="loginWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -92,6 +109,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="PostWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="signupWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

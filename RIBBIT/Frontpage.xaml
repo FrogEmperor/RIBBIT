@@ -5,10 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RIBBIT"
         mc:Ignorable="d"
-        Title="Frontpage" Height="450" Width="800">
+        Title="Frontpage" Height="450" Width="800" Loaded="Window_Loaded">
     <Grid>
         <Label Content="Label" HorizontalAlignment="Left" Margin="10,25,0,0" VerticalAlignment="Top"/>
-        <ListView HorizontalAlignment="Left" Height="354" Margin="30,56,0,0" VerticalAlignment="Top" Width="735">
+        <ListView x:Name="lvPosts" HorizontalAlignment="Left" Height="354" Margin="30,56,0,0" VerticalAlignment="Top" Width="735">
             <ListView.View>
                 <GridView>
                     <GridViewColumn/>

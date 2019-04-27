@@ -30,12 +30,12 @@ namespace RIBBIT
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             InitializeComponent();
-            
-            Create_Post cp = new Create_Post();
-            cp.Owner = this;
-            cp.Show();
-            this.Hide();
-            
+
+            loginWindow login = new loginWindow();
+            login.Owner = this;
+            login.Show();
+            Hide();
+
         }
 
         public void OpenPost(Post postActual)
@@ -45,5 +45,7 @@ namespace RIBBIT
             postWindow.Owner = this;
             postWindow.Show();
         }
+
+
     }
 }

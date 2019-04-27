@@ -23,5 +23,22 @@ namespace RIBBIT
         {
             InitializeComponent();
         }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void fillListView(List<Post> allPosts)
+        {
+            foreach (var item in allPosts)
+            {
+                StackPanel stack = new StackPanel();
+                Image img = new Image();
+                img.Source = item.images;
+            }
+            
+            
+        }
     }
 }
