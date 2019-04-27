@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace RIBBIT
 {
-    class Comment
+    class Comment:Upload
     {
+        public Comment(string content)
+        {
+          this.content = content;
+        }
     }
 }
