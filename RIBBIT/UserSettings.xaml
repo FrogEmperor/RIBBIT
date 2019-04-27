@@ -13,7 +13,7 @@
         <TextBox x:Name="txtAbout" HorizontalAlignment="Left" Height="155" Margin="102,237,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="268"/>
         <Label Content="Profile Picture:" HorizontalAlignment="Left" Margin="398,94,0,0" VerticalAlignment="Top"/>
         <Button x:Name="btnSave" Content="Save Changes" HorizontalAlignment="Left" Margin="443,300,0,0" VerticalAlignment="Top" Width="85" Height="27" Click="BtnSave_Click"/>
-        <Button x:Name="btnUpload" Content="Upload" HorizontalAlignment="Left" Margin="642,100,0,0" VerticalAlignment="Top" Width="75" Click="BtnUpload_Click"/>
+        <Button x:Name="btnUpload" Content="Upload" HorizontalAlignment="Left" Margin="642,100,0,0" VerticalAlignment="Top" Width="75" Click="BtnUpload_Click" Visibility="Hidden"/>
 
     </Grid>
 </Window>

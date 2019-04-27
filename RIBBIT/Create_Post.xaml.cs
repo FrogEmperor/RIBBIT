@@ -72,5 +72,12 @@ namespace RIBBIT
             this.Close();
             
         }
+
+        private void BtnGoBack_Click(object sender, RoutedEventArgs e)
+        {
+            UserProfile profile = new UserProfile((Owner as MainWindow).currentUser);
+            profile.Show();
+            Close();
+        }
     }
 }

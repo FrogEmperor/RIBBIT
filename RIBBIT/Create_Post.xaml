@@ -16,6 +16,7 @@
         <Button x:Name="btnImage" Content="Image" HorizontalAlignment="Left" Margin="535,293,0,0" VerticalAlignment="Top" Width="75" Click="btnImage_Click" Grid.Column="1"/>
         <Label x:Name="lblImageSource" Content="" HorizontalAlignment="Left" Height="35" Margin="80,290,0,0" VerticalAlignment="Top" Width="540" Grid.ColumnSpan="2"/>
         <Button x:Name="btnUpload" Content="Post" Grid.Column="1" HorizontalAlignment="Left" Margin="275.4,356,0,0" VerticalAlignment="Top" Width="75" Click="btnUpload_Click"/>
+        <Button x:Name="btnGoBack" Content="Go Back" Grid.Column="1" HorizontalAlignment="Left" Margin="506,370,0,0" VerticalAlignment="Top" Width="85" Height="26" Click="BtnGoBack_Click"/>
 
     </Grid>
 </Window>

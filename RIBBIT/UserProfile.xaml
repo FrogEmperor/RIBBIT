@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RIBBIT"
         mc:Ignorable="d"
-        Title="UserProfile" Height="450" Width="800">
+        Title="UserProfile" Height="450" Width="800" Loaded="Window_Loaded">
     <Grid>
         <Label x:Name="lblUsername" Content="Username" HorizontalAlignment="Left" Margin="638,115,0,0" VerticalAlignment="Top" Height="30" Width="124"/>
         <Label x:Name="lblKarma" Content="Karma" HorizontalAlignment="Left" Margin="515,253,0,0" VerticalAlignment="Top" Height="32" Width="58"/>
@@ -13,15 +13,15 @@
         <Label x:Name="lblKarma_Copy" Content="Karma" HorizontalAlignment="Left" Margin="515,226,0,0" VerticalAlignment="Top" Height="32" Width="58"/>
         <Label x:Name="lblBirthday_Copy" Content="Birthday" HorizontalAlignment="Left" Margin="624,226,0,0" VerticalAlignment="Top" Width="58"/>
         <Menu HorizontalAlignment="Left" Height="30" Margin="25,50,0,0" VerticalAlignment="Top" Width="445">
-            <Button Content="Overview" BorderBrush="{x:Null}" Background="{x:Null}"/>
-            <Button Content="Posts" BorderBrush="{x:Null}" Background="{x:Null}"/>
-            <Button Content="Comments" BorderBrush="{x:Null}" Background="{x:Null}"/>
-            <Button Content="Saved" BorderBrush="{x:Null}" Background="{x:Null}"/>
-            <Button Content="Hidden" BorderBrush="{x:Null}" Background="{x:Null}"/>
-            <Button Content="Upvoted" BorderBrush="{x:Null}" Background="{x:Null}"/>
-            <Button Content="Downvoted" BorderBrush="{x:Null}" Background="{x:Null}"/>
+            <Button x:Name="btnOverview" Content="Overview" BorderBrush="{x:Null}" Background="{x:Null}" Click="BtnOverview_Click"/>
+            <Button x:Name="btnPosts" Content="Posts" BorderBrush="{x:Null}" Background="{x:Null}" Click="BtnPosts_Click"/>
+            <Button x:Name="btnComments" Content="Comments" BorderBrush="{x:Null}" Background="{x:Null}" Click="BtnComments_Click"/>
+            <Button x:Name="btnSaved" Content="Saved" BorderBrush="{x:Null}" Background="{x:Null}" Click="BtnSaved_Click"/>
+            <Button x:Name="btnHidden" Content="Hidden" BorderBrush="{x:Null}" Background="{x:Null}" Click="BtnHidden_Click"/>
+            <Button x:Name="btnUpvoted" Content="Upvoted" BorderBrush="{x:Null}" Background="{x:Null}" Click="BtnUpvoted_Click"/>
+            <Button x:Name="btnDownvoted" Content="Downvoted" BorderBrush="{x:Null}" Background="{x:Null}" Click="BtnDownvoted_Click"/>
         </Menu>
-        <ListView x:Name="listviewProfile" HorizontalAlignment="Left" Height="302" Margin="25,95,0,0" VerticalAlignment="Top" Width="445">
+        <ListView x:Name="listviewProfile" HorizontalAlignment="Left" Height="302" Margin="25,95,0,0" VerticalAlignment="Top" Width="445" MouseDoubleClick="ListviewProfile_MouseDoubleClick">
             <ListView.View>
                 <GridView>
                     <GridViewColumn/>
@@ -41,5 +41,6 @@
         <TextBlock x:Name="txtblockAbout" HorizontalAlignment="Left" Margin="491,145,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="81" Width="291"/>
         <Button x:Name="btnCreatePost" Content="TEMP" HorizontalAlignment="Left" Margin="25,20,0,0" VerticalAlignment="Top" Width="75" Click="btnCreatePost_Click"/>
         <Button x:Name="btnFrontPage" Content="Button" HorizontalAlignment="Left" Margin="125,20,0,0" VerticalAlignment="Top" Width="75" Click="btnFrontPage_Click"/>
+        <Button x:Name="btnLogout" Content="Logout" HorizontalAlignment="Left" Margin="707,377,0,0" VerticalAlignment="Top" Width="75" Click="BtnLogout_Click"/>
     </Grid>
 </Window>

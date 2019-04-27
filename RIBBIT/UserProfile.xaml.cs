@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.IO;
+using Newtonsoft.Json;
 
 namespace RIBBIT
 {
@@ -20,6 +22,8 @@ namespace RIBBIT
     public partial class UserProfile : Window
     {
         User user;
+        List<int> indices = new List<int>();
+        List<Post> postList = JsonConvert.DeserializeObject<List<Post>>(File.ReadAllText(@"Posts\Posts.json"));
 
         public UserProfile(User user)
         {
@@ -32,6 +36,7 @@ namespace RIBBIT
             imgPic.Source = new BitmapImage(new Uri(user.profilePicture, UriKind.RelativeOrAbsolute));
             lblDisplayname.Content = user.displayName;
             txtblockAbout.Text = user.about;
+            
         }
 
         private void BtnSettings_Click(object sender, RoutedEventArgs e)
@@ -55,6 +60,88 @@ namespace RIBBIT
             Frontpage frontpage = new Frontpage();
             frontpage.Owner = Owner;
             frontpage.Show();
+            Close();
+        }
+
+        private void fillListView(List<int> add)
+        {
+            indices = new List<int>();
+            listviewProfile.Items.Clear();
+            for (int i =0; i<add.Count(); i++)
+            {
+                StackPanel stack = new StackPanel();
+                stack.Orientation = Orientation.Horizontal;
+                if (postList[add[i]].images != "")
+                {
+                    Image img = new Image();
+                    img.Source = new BitmapImage(new Uri(postList[add[i]].images, UriKind.Absolute));
+                    img.Width = 200;
+                    stack.Children.Add(img);
+                }
+                TextBlock txt = new TextBlock();
+                txt.Text = postList[add[i]].title + " ... Uploaded by: " + postList[add[i]].owner;
+                stack.Children.Add(txt);
+                listviewProfile.Items.Add(stack);
+                indices.Add(postList[add[i]].ID);
+            }
+            listviewProfile.Items.Refresh();  
+        }
+
+        private void ListviewProfile_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            if (listviewProfile.SelectedIndex >= 0)
+            {
+                (Owner as MainWindow).OpenPost(postList[indices[listviewProfile.SelectedIndex]]);
+                Close();
+            }
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            fillListView(user.posts);
+        }
+
+        private void BtnOverview_Click(object sender, RoutedEventArgs e)
+        {
+            List<int> over = user.posts.Concat(user.comments).ToList();
+            fillListView(over);
+        }
+
+        private void BtnPosts_Click(object sender, RoutedEventArgs e)
+        {
+            fillListView(user.posts);
+        }
+
+        private void BtnComments_Click(object sender, RoutedEventArgs e)
+        {
+            fillListView(user.comments);
+        }
+
+        private void BtnSaved_Click(object sender, RoutedEventArgs e)
+        {
+            //fillListView(user.saved);
+        }
+
+        private void BtnHidden_Click(object sender, RoutedEventArgs e)
+        {
+            //fillListView(user.hidden);
+        }
+
+        private void BtnUpvoted_Click(object sender, RoutedEventArgs e)
+        {
+            //fillListView(user.upvoted);
+        }
+
+        private void BtnDownvoted_Click(object sender, RoutedEventArgs e)
+        {
+            //fillListView(user.downvoted);
+        }
+
+        private void BtnLogout_Click(object sender, RoutedEventArgs e)
+        {
+            (Owner as MainWindow).currentUser = null;
+            loginWindow login = new loginWindow();
+            login.Show();
             Close();
         }
     }

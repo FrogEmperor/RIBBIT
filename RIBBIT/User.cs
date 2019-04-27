@@ -14,16 +14,22 @@ namespace RIBBIT
         public string displayName { get; set; }
         public DateTime accountBirthday { get; set; }
         public string password { get; set; }
-        public List<Tadpole> follows { get; set; }  //subreddits who follows
         public string email { get; set; }
         public int postKarma { get; set; }
         public int commentKarma { get; set; }
         public string about { get; set; }   //user info
-        public List<int> posts { get; set; }
-        public List<int> comments { get; set; }
         public string profilePicture { get; set; } //img source
         public bool isGold { get; set; }
         public List<string> trophies { get; set; }
+        public List<int> posts { get; set; }
+        public List<int> comments { get; set; }
+        public List<int> gilded { get; set; }
+        public List<int> upvoted { get; set; }
+        public List<int> downvoted { get; set; }
+        public List<int> hidden { get; set; }
+        public List<int> saved { get; set; }
+
+
 
         public User(string username, string password, string email)
         {
@@ -31,7 +37,6 @@ namespace RIBBIT
             this.password = password;
             this.email = email;
             accountBirthday = DateTime.Now.Date;
-            follows = new List<Tadpole>();
             posts = new List<int>();
             comments = new List<int>();
             trophies = new List<string>();

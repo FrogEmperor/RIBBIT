@@ -102,6 +102,7 @@ namespace RIBBIT
             Comments(listbxComments, postActual.comments);
             string arregloObjects2 = JsonConvert.SerializeObject(posts, Formatting.Indented);
             File.WriteAllText(@"Posts\Posts.json", arregloObjects2);
+            //(Owner as MainWindow).currentUser.posts.Add(postActual.ID);
         }
 
         private void Comments(ListBox listBox, List<int> comments)
