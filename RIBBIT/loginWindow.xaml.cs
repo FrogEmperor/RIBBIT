@@ -22,32 +22,41 @@ namespace RIBBIT
     /// </summary>
     public partial class loginWindow : Window
     {
-        //JsonSerializer serializer = new JsonSerializer();
-        List<User> users = new List<User>();
+        List<User> users;
 
         public loginWindow()
         {
             InitializeComponent();
+            users = JsonConvert.DeserializeObject<List<User>>(File.ReadAllText(@"....\Debug\Users\users.json")); //deserealize
         }
 
         private void BtnLogin_Click(object sender, RoutedEventArgs e)
         {
-            string username = txtUsername.Text;
-            StringBuilder sb = encrypt();   //passwordhash
-
-            //users = JsonConvert.DeserializeObject("/JSONs/users.json", typeof(List<User>));
-            //File.WriteAllText("/JSONs/users.json", JsonConvert.SerializeObject())
-
-
-            /*foreach string name in json.usersc
-             * if name==username, error message: name already in use
-             * else add new user with username
-             */
+            Login();
         }
 
-        private StringBuilder encrypt()
+        private void Login()
         {
-            string password = txtPassword.Password;
+            string username = txtUsername.Text;
+            StringBuilder sb = encrypt(txtPassword.Password);   //passwordhash
+
+            foreach (User user in users)
+            {
+                if (username == user.username && sb.ToString() == user.password)
+                {
+                    UserProfile profile = new UserProfile(user);
+                    profile.Owner = Owner;
+                    profile.Show();
+                    Close();
+                    //lblOutput.Content = "hola";
+                    //frontpage fp = new frontpage(user);
+                    break;
+                }
+            }
+        }
+
+        public static StringBuilder encrypt(string password)
+        {
             SHA512 sha = SHA512.Create();
             byte[] hash = sha.ComputeHash(Encoding.UTF8.GetBytes(password));
             StringBuilder sb = new StringBuilder();
@@ -55,7 +64,6 @@ namespace RIBBIT
             {
                 sb.Append(hash[i].ToString("x2"));
             }
-            lblOutput.Content = sb.ToString();
             sha.Dispose();
             return sb;
         }
@@ -64,9 +72,16 @@ namespace RIBBIT
         {
             if (e.Key == Key.Enter)
             {
-                string username = txtUsername.Text;
-                StringBuilder sb = encrypt();
+                Login();
             }
+        }
+
+        private void BtnSignup_Click(object sender, RoutedEventArgs e)
+        {
+            signupWindow signup = new signupWindow(users);
+            signup.Owner = this.Owner;
+            signup.Show();
+            Close();
         }
     }
 }

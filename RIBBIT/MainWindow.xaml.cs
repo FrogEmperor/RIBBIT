@@ -24,5 +24,13 @@ namespace RIBBIT
         {
             InitializeComponent();
         }
+
+        private void Grid_Loaded(object sender, RoutedEventArgs e)
+        {
+            loginWindow login = new loginWindow();
+            login.Owner = this;
+            login.Show();
+            Hide();
+        }
     }
 }
