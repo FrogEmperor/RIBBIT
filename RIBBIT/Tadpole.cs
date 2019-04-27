@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RIBBIT
 {
-    class Tadpole
+    public class Tadpole
     {
     }
 }

@@ -6,13 +6,15 @@ using System.Threading.Tasks;
 
 namespace RIBBIT
 {
-    class Post:Upload
+    public class Post:Upload
     {
         public string title { get; set; }
-        public string[] images { get; }
+        public string images { get; }
         public string video { get; }
-        public Post(string title, string[] images, string video, string content)
+        public Post(string owner, int ID, string title, string images, string video, string content):
+            base(owner,ID)
         {
+            this.title = title;
             this.images = images;
             this.video = video;
             this.content = content;

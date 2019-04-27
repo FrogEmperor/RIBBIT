@@ -6,15 +6,26 @@ using System.Threading.Tasks;
 
 namespace RIBBIT
 {
-    abstract class Upload
+    public abstract class Upload
     {
-        public string userName { get; }
+        public int ID { get; }
+        public string owner { get; }
         public DateTime creationDate { get; }
         public int upvote { get; set; }
         public int downvote { get; set; }
-        public List<Comment> comments { get; set; }
+        public List<int> comments { get; set; }
         public int award { get; set; }
         public List<string> tags { get; set; }
         public string content { get; set; }
+        public Upload(string owner,int ID)
+        {
+            this.ID = ID;
+            this.owner = owner;
+            this.creationDate = DateTime.Now;
+            this.comments = new List<int>();
+            this.tags = new List<string>();
+            this.upvote = 0;
+            this.downvote = 0;
+        }
     }
 }
