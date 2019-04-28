@@ -27,6 +27,8 @@ namespace RIBBIT
             InitializeComponent();
         }
 
+
+
         private void btnImage_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -59,7 +61,7 @@ namespace RIBBIT
             {
                 path = String.Empty;
             }
-            Post newPost = new Post("temp",p.Count,txtbxTitle.Text, path, txtbxTitle.Text, txtbxContent.Text);
+            Post newPost = new Post((Owner as MainWindow).currentUser.username, p.Count,txtbxTitle.Text, path, txtbxTitle.Text, txtbxContent.Text);
             p.Add(newPost);
             string arregloObjects = JsonConvert.SerializeObject(p, Formatting.Indented);
             File.WriteAllText(@"Posts\Posts.json", arregloObjects);

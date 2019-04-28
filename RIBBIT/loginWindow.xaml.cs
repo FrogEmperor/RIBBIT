@@ -44,15 +44,15 @@ namespace RIBBIT
                 {
                     if (username == user.username && sb.ToString() == user.password)
                     {
-                        UserProfile profile = new UserProfile(user);
-                        profile.Owner = Owner;
-                        profile.Show();
-                        Close();
+                        (Owner as MainWindow).currentUser = user;
+                        (Owner as MainWindow).OpenProfile(user);
+                        this.Close();
                         //lblOutput.Content = "hola";
                         //frontpage fp = new frontpage(user);
-                        break;
+                        return;
                     }
                 }
+                MessageBox.Show("Wrong combination");
             }
 
             public static StringBuilder encrypt(string password)

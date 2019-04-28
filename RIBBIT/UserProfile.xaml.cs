@@ -41,5 +41,21 @@ namespace RIBBIT
             settings.Show();
             Close();
         }
+
+        private void btnCreatePost_Click(object sender, RoutedEventArgs e)
+        {
+            Create_Post createPost = new Create_Post();
+            createPost.Owner = Owner;
+            createPost.Show();
+            Close();
+        }
+
+        private void btnFrontPage_Click(object sender, RoutedEventArgs e)
+        {
+            Frontpage frontpage = new Frontpage();
+            frontpage.Owner = Owner;
+            frontpage.Show();
+            Close();
+        }
     }
 }

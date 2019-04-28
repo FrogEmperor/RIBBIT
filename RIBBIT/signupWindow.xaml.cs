@@ -67,8 +67,9 @@ namespace RIBBIT
         private void Window_Closed(object sender, EventArgs e)
         {
             loginWindow login = new loginWindow();
-            login.Show();
             login.Owner = Owner;
+            login.Show();
+            
         }
     }
 }

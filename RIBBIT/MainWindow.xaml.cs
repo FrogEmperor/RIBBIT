@@ -22,22 +22,26 @@ namespace RIBBIT
     /// </summary>
     public partial class MainWindow : Window
     {
-        public User currentUser;
+        public User currentUser { get; set; }
         public MainWindow()
         {
+            InitializeComponent();
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            InitializeComponent();
-
             loginWindow login = new loginWindow();
             login.Owner = this;
             login.Show();
             Hide();
 
         }
-
+        public void OpenProfile(User user)
+        {
+            UserProfile profile = new UserProfile(user);
+            profile.Owner = this;
+            profile.Show();
+        }
         public void OpenPost(Post postActual)
         {
             PostWindow postWindow = new PostWindow();

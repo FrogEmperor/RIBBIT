@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RIBBIT"
         mc:Ignorable="d"
-        Title="signupWindow" Height="311.4" Width="503.2">
+        Title="signupWindow" Height="311.4" Width="503.2" Closed="Window_Closed" KeyDown="Window_KeyDown">
     <Grid>
         <Label Content="Enter your email:" HorizontalAlignment="Left" Margin="66,116,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="txtEmail" HorizontalAlignment="Left" Height="23" Margin="66,147,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
