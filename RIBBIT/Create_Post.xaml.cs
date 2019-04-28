@@ -68,6 +68,17 @@ namespace RIBBIT
             txtbxContent.Text = String.Empty;
             txtbxTitle.Text = String.Empty;
             lblImageSource.Content = String.Empty;
+            (this.Owner as MainWindow).currentUser.posts.Add(newPost.ID);
+            List<User> usuarios = JsonConvert.DeserializeObject<List<User>>(File.ReadAllText(@"Users\users.json"));
+            for (int j = 0; j < usuarios.Count; j++)
+            {
+                if (usuarios[j].username == (Owner as MainWindow).currentUser.username)
+                {
+                    usuarios[j].posts.Add(newPost.ID);
+                }
+            }
+            arregloObjects = JsonConvert.SerializeObject(usuarios, Formatting.Indented);
+            File.WriteAllText(@"Users\users.json", arregloObjects);
             (this.Owner as MainWindow).OpenPost(newPost); 
             this.Close();
             

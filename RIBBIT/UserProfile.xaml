@@ -13,15 +13,14 @@
         <Label x:Name="lblKarma_Copy" Content="Karma" HorizontalAlignment="Left" Margin="515,226,0,0" VerticalAlignment="Top" Height="32" Width="58"/>
         <Label x:Name="lblBirthday_Copy" Content="Birthday" HorizontalAlignment="Left" Margin="624,226,0,0" VerticalAlignment="Top" Width="58"/>
         <Menu HorizontalAlignment="Left" Height="30" Margin="25,50,0,0" VerticalAlignment="Top" Width="445">
-            <Button Content="Overview" BorderBrush="{x:Null}" Background="{x:Null}"/>
-            <Button Content="Posts" BorderBrush="{x:Null}" Background="{x:Null}"/>
+            <Button x:Name="btnPosts" Content="Posts" BorderBrush="{x:Null}" Background="{x:Null}" Click="btnPosts_Click"/>
             <Button Content="Comments" BorderBrush="{x:Null}" Background="{x:Null}"/>
-            <Button Content="Saved" BorderBrush="{x:Null}" Background="{x:Null}"/>
+            <Button x:Name="btnLvSaved" Content="Saved" BorderBrush="{x:Null}" Background="{x:Null}" Click="btnLvSaved_Click"/>
             <Button Content="Hidden" BorderBrush="{x:Null}" Background="{x:Null}"/>
             <Button Content="Upvoted" BorderBrush="{x:Null}" Background="{x:Null}"/>
             <Button Content="Downvoted" BorderBrush="{x:Null}" Background="{x:Null}"/>
         </Menu>
-        <ListView x:Name="listviewProfile" HorizontalAlignment="Left" Height="302" Margin="25,95,0,0" VerticalAlignment="Top" Width="445">
+        <ListView x:Name="listviewProfile" HorizontalAlignment="Left" Height="302" Margin="25,95,0,0" VerticalAlignment="Top" Width="445" MouseDoubleClick="listviewProfile_MouseDoubleClick">
             <ListView.View>
                 <GridView>
                     <GridViewColumn/>

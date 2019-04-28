@@ -50,13 +50,6 @@ namespace RIBBIT
             postWindow.Show();
         }
 
-        public void OpenTadpole(Tadpole tadpole)
-        {
-            TadPole subPole = new TadPole();
-            subPole.Owner = this;
-            subPole.Show();
-        }
-
 
     }
 }

@@ -15,6 +15,5 @@
         <Button x:Name="btnSignup" Content="Sign Up" HorizontalAlignment="Left" Margin="371,157,0,0" VerticalAlignment="Top" Width="76" Click="BtnSignup_Click"/>
         <Label Content="Log in" HorizontalAlignment="Left" Margin="34,44,0,0" VerticalAlignment="Top" Height="39" Width="172" FontSize="18" FontWeight="Bold"/>
         <Label Content="New to Ribbit? Sign Up!" HorizontalAlignment="Left" Margin="340,119,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="lblOutput" Content="Label" HorizontalAlignment="Left" Margin="234,50,0,0" VerticalAlignment="Top" Width="342"/>
     </Grid>
 </Window>

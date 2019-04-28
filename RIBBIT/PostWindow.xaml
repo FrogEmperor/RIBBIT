@@ -7,12 +7,16 @@
         mc:Ignorable="d"
         Title="PostWindow" Height="656.3" Width="800" Loaded="Window_Loaded">
     <Grid x:Name="cnvCommentForm">
+        <Button x:Name="btnReturn" Content="Button" HorizontalAlignment="Left" Margin="683,23,0,0" VerticalAlignment="Top" Width="75" Click="btnReturn_Click"/>
         <TextBlock x:Name="txtblkUser" HorizontalAlignment="Left" Margin="40,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="22" Width="225" MouseRightButtonUp="txtblkUser_MouseRightButtonUp"/>
         <TextBlock x:Name="txtblkContent" HorizontalAlignment="Left" Margin="40,70,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="121" Width="680"/>
         <TextBlock x:Name="txtblkTitle" HorizontalAlignment="Left" Margin="40,38,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="27" Width="680" FontWeight="Bold"/>
         <Label Content="Comments" HorizontalAlignment="Left" Margin="40,220,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="btnUpvote_Copy" Content="+" HorizontalAlignment="Left" Margin="210,195,0,0" VerticalAlignment="Top" Width="35" Background="#FF20ED1B" Click="btnUpvote_Copy_Click"/>
+        <Button x:Name="btnDownVote_Copy" Content="-" HorizontalAlignment="Left" Margin="260,196,0,0" VerticalAlignment="Top" Width="35" Background="#FFF95050" Click="btnDownVote_Copy_Click"/>
         <Button x:Name="btnSubmit" Content="Submit" HorizontalAlignment="Left" Margin="32,321,0,0" VerticalAlignment="Top" Width="75" Click="btnSubmit_Click" Background="#FF259337"/>
         <TextBox x:Name="txtbxNewComment" HorizontalAlignment="Left" Height="65" Margin="32,251,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="726"/>
+        <Button x:Name="btnSavePost" Content="Save" HorizontalAlignment="Left" Margin="125,196,0,0" VerticalAlignment="Top" Width="55" Background="#FF229337" Click="btnSavePost_Click_1" Height="19"/>
         <ListBox x:Name="listbxComments" HorizontalAlignment="Left" Height="220" Margin="32,345,0,0" VerticalAlignment="Top" Width="726"/>
         <Button x:Name="btnShowImage" Content="Image" HorizontalAlignment="Left" Margin="32,196,0,0" VerticalAlignment="Top" Width="75" Click="btnShowImage_Click" Background="#FF259337"/>
         <Canvas x:Name="canvasShadow" HorizontalAlignment="Left" Height="626" VerticalAlignment="Top" Width="794" Margin="0,0,-0.4,0" Background="#FF5F5454" Opacity="0.5"/>
@@ -21,16 +25,13 @@
         <Canvas x:Name="canvasComment" HorizontalAlignment="Left" Height="259" VerticalAlignment="Top" Width="435" Margin="165,191,0,0" Background="White">
             <Button x:Name="btnCloseReply" Content="X" Canvas.Left="411" Width="24" Click="btnCloseReply_Click" Background="Red" Height="19"/>
         </Canvas>
-        <TextBox x:Name="txtReply" HorizontalAlignment="Left" Height="190" Margin="210,220,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="375" Text="lmao"/>
+        <TextBox x:Name="txtReply" HorizontalAlignment="Left" Height="190" Margin="210,220,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="375"/>
         <Button x:Name="btnReport" Content="Report" HorizontalAlignment="Left" Margin="295,416,0,0" VerticalAlignment="Top" Width="75" Background="#FFC5216D"/>
         <Button x:Name="btnSendResponse" Content="Reply!" HorizontalAlignment="Left" Margin="210,416,0,0" VerticalAlignment="Top" Width="55" Click="btnSendResponse_Click" Background="#FF229337"/>
         <Label x:Name="lblReply" Content="Reply?" HorizontalAlignment="Left" Margin="210,189,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="btnSave" Content="Save" HorizontalAlignment="Left" Margin="400,416,0,0" VerticalAlignment="Top" Width="75" Background="#FF229337"/>
+        <Button x:Name="btnSave" Content="Save" HorizontalAlignment="Left" Margin="400,416,0,0" VerticalAlignment="Top" Width="75" Background="#FF229337" Click="btnSave_Click"/>
         <Button x:Name="btnAward" Content="Award!" HorizontalAlignment="Left" Margin="500,416,0,0" VerticalAlignment="Top" Width="75" Background="#FFC2FF11"/>
         <Button x:Name="btnUpvote" Content="+" HorizontalAlignment="Left" Margin="170,275,0,0" VerticalAlignment="Top" Width="35" Background="#FF20ED1B" Click="btnUpvote_Click"/>
         <Button x:Name="btnDownVote" Content="-" HorizontalAlignment="Left" Margin="170,326,0,0" VerticalAlignment="Top" Width="35" Background="#FFF95050" Click="btnDownVote_Click"/>
-
-
-
     </Grid>
 </Window>

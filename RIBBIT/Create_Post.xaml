@@ -6,16 +6,14 @@
         xmlns:local="clr-namespace:RIBBIT"
         mc:Ignorable="d"
         Title="Create_Post" Height="450" Width="800">
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="45*"/>
-            <ColumnDefinition Width="352*"/>
-        </Grid.ColumnDefinitions>
+    <Grid x:Name="___No_Name_">
         <TextBox x:Name="txtbxTitle" HorizontalAlignment="Left" Height="45" Margin="80,80,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="635" Grid.ColumnSpan="2"/>
         <TextBox x:Name="txtbxContent" HorizontalAlignment="Left" Height="120" Margin="80,165,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="635" Grid.ColumnSpan="2"/>
-        <Button x:Name="btnImage" Content="Image" HorizontalAlignment="Left" Margin="535,293,0,0" VerticalAlignment="Top" Width="75" Click="btnImage_Click" Grid.Column="1"/>
+        <Button x:Name="btnImage" Content="Image" HorizontalAlignment="Left" Margin="655,293,0,0" VerticalAlignment="Top" Width="60" Click="btnImage_Click"/>
         <Label x:Name="lblImageSource" Content="" HorizontalAlignment="Left" Height="35" Margin="80,290,0,0" VerticalAlignment="Top" Width="540" Grid.ColumnSpan="2"/>
         <Button x:Name="btnUpload" Content="Post" Grid.Column="1" HorizontalAlignment="Left" Margin="275.4,356,0,0" VerticalAlignment="Top" Width="75" Click="btnUpload_Click"/>
+        <Label Content="Title:" HorizontalAlignment="Left" Margin="40,80,0,0" VerticalAlignment="Top"/>
+        <Label Content="Content:" HorizontalAlignment="Left" Margin="26,165,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>

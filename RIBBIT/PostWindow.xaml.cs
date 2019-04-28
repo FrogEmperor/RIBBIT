@@ -91,7 +91,7 @@ namespace RIBBIT
         {
             List<Post> posts = JsonConvert.DeserializeObject    <List<Post>>(File.ReadAllText(@"Posts\Posts.json"));
             List<Comment> comments = JsonConvert.DeserializeObject<List<Comment>>(File.ReadAllText(@"Posts\Comments.json"));
-            Comment NewComment = new Comment("temporal",comments.Count, txtbxNewComment.Text);
+            Comment NewComment = new Comment((Owner as MainWindow).currentUser.username, comments.Count, txtbxNewComment.Text);
             postActual.comments.Add(comments.Count);
             posts[postActual.ID].comments.Add(comments.Count);
             comments.Add(NewComment);
@@ -171,7 +171,7 @@ namespace RIBBIT
         private void btnSendResponse_Click(object sender, RoutedEventArgs e)
         {
             List<Comment> comments = JsonConvert.DeserializeObject<List<Comment>>(File.ReadAllText(@"Posts\Comments.json"));
-            Comment c = new Comment("respuestaManual", comments.Count, txtReply.Text);
+            Comment c = new Comment((Owner as MainWindow).currentUser.username, comments.Count, txtReply.Text);
             comments.Add(c);
             comments[commentShown.ID].comments.Add(c.ID); 
             string arregloObjects = JsonConvert.SerializeObject(comments, Formatting.Indented);
@@ -203,6 +203,130 @@ namespace RIBBIT
             HideReply();
             listbxComments.Items.Clear();
             Comments(listbxComments, postActual.comments);
+        }
+
+        private void btnSave_Click(object sender, RoutedEventArgs e)
+        {
+            //(Owner as MainWindow).currentUser.saves.Add(postActual.ID);
+        }
+
+        private void btnSavePost_Click_1(object sender, RoutedEventArgs e)
+        {
+            List<User> users = JsonConvert.DeserializeObject<List<User>>(File.ReadAllText(@"Users\users.json"));
+            (Owner as MainWindow).currentUser.saves.Add(postActual.ID);
+            for(int i = 0; i<users.Count;i++)
+            {
+                if(users[i].username == (Owner as MainWindow).currentUser.username)
+                {
+                    users[i].saves.Add(postActual.ID); 
+                }
+            }
+            string arregloObjects = JsonConvert.SerializeObject(users, Formatting.Indented);
+            File.WriteAllText(@"Users\users.json", arregloObjects);
+        }
+
+        private void btnReturn_Click(object sender, RoutedEventArgs e)
+        {
+            (Owner as MainWindow).OpenProfile((Owner as MainWindow).currentUser);
+            this.Close();
+        }
+
+        private void btnUpvote_Copy_Click(object sender, RoutedEventArgs e)
+        {
+            for (int i = 0; i < (Owner as MainWindow).currentUser.vote.Count; i++)
+            {
+                if ((Owner as MainWindow).currentUser.vote[i][0] == postActual.ID)
+                {
+                    if ((Owner as MainWindow).currentUser.vote[i][1]==0)
+                    {
+                        postActual.upvote += 2;
+                        (Owner as MainWindow).currentUser.vote[i][1] = 1;
+                        List<Post> posts = JsonConvert.DeserializeObject<List<Post>>(File.ReadAllText(@"Posts\Post.json"));
+                        posts[postActual.ID].upvote += 1;
+                        string arregloObjects2 = JsonConvert.SerializeObject(posts, Formatting.Indented);
+                        File.WriteAllText(@"Posts\Post.json", arregloObjects2);
+                        List<User> usuarios2 = JsonConvert.DeserializeObject<List<User>>(File.ReadAllText(@"Users\users.json"));
+                        for (int j = 0; j < usuarios2.Count; j++)
+                        {
+                            if(usuarios2[j].username== (Owner as MainWindow).currentUser.username)
+                            {
+                                usuarios2[j].vote[i][1] = 1;
+                            }
+                        }
+                        arregloObjects2 = JsonConvert.SerializeObject(usuarios2, Formatting.Indented);
+                        File.WriteAllText(@"Posts\Post.json", arregloObjects2);
+                        HideReply();
+                        return;
+                    }
+                    else
+                    {
+                        return;
+                    }
+                }
+            }
+            int[] vote = { postActual.ID, 1 };
+            postActual.upvote += 1;
+            (Owner as MainWindow).currentUser.vote.Add(vote);
+            List<User> usuarios = JsonConvert.DeserializeObject<List<User>>(File.ReadAllText(@"Users\users.json"));
+            for (int j = 0; j < usuarios.Count; j++)
+            {
+                if (usuarios[j].username == (Owner as MainWindow).currentUser.username)
+                {
+                    usuarios[j].vote.Add(vote);
+                }
+            }
+            string arregloObjects = JsonConvert.SerializeObject(usuarios, Formatting.Indented);
+            File.WriteAllText(@"Posts\Post.json", arregloObjects);
+            HideReply();
+        }
+
+        private void btnDownVote_Copy_Click(object sender, RoutedEventArgs e)
+        {
+            for (int i = 0; i < (Owner as MainWindow).currentUser.vote.Count; i++)
+            {
+                if ((Owner as MainWindow).currentUser.vote[i][0] == postActual.ID)
+                {
+                    if ((Owner as MainWindow).currentUser.vote[i][1] == 1)
+                    {
+                        postActual.upvote -= 2;
+                        (Owner as MainWindow).currentUser.vote[i][1] = 0;
+                        List<Post> posts = JsonConvert.DeserializeObject<List<Post>>(File.ReadAllText(@"Posts\Post.json"));
+                        posts[postActual.ID].upvote += 1;
+                        string arregloObjects2 = JsonConvert.SerializeObject(posts, Formatting.Indented);
+                        File.WriteAllText(@"Posts\Post.json", arregloObjects2);
+                        List<User> usuarios2 = JsonConvert.DeserializeObject<List<User>>(File.ReadAllText(@"Users\users.json"));
+                        for (int j = 0; j < usuarios2.Count; j++)
+                        {
+                            if (usuarios2[j].username == (Owner as MainWindow).currentUser.username)
+                            {
+                                usuarios2[j].vote[i][1] = 1;
+                            }
+                        }
+                        arregloObjects2 = JsonConvert.SerializeObject(usuarios2, Formatting.Indented);
+                        File.WriteAllText(@"Posts\Post.json", arregloObjects2);
+                        HideReply();
+                        return;
+                    }
+                    else
+                    {
+                        return;
+                    }
+                }
+            }
+            int[] vote = { postActual.ID, 0 };
+            postActual.upvote -= 1;
+            (Owner as MainWindow).currentUser.vote.Add(vote);
+            List<User> usuarios = JsonConvert.DeserializeObject<List<User>>(File.ReadAllText(@"Users\users.json"));
+            for (int j = 0; j < usuarios.Count; j++)
+            {
+                if (usuarios[j].username == (Owner as MainWindow).currentUser.username)
+                {
+                    usuarios[j].vote.Add(vote);
+                }
+            }
+            string arregloObjects = JsonConvert.SerializeObject(usuarios, Formatting.Indented);
+            File.WriteAllText(@"Posts\Post.json", arregloObjects);
+            HideReply();
         }
     }
 }

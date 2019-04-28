@@ -15,6 +15,9 @@
                 </GridView>
             </ListView.View>
         </ListView>
+        <Button x:Name="btnSearch" Content="Search" HorizontalAlignment="Left" Margin="629,25,0,0" VerticalAlignment="Top" Width="77" Height="26" Click="BtnSearch_Click"/>
+        <TextBox x:Name="txtSearch" HorizontalAlignment="Left" Height="41" Margin="131,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="431"/>
+        <Button x:Name="btnGoBack" Content="BACK" HorizontalAlignment="Left" Margin="730,25,0,0" VerticalAlignment="Top" Width="52" Click="BtnGoBack_Click"/>
 
     </Grid>
 </Window>

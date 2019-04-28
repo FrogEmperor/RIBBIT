@@ -27,7 +27,7 @@ namespace RIBBIT
             public loginWindow()
             {
                 InitializeComponent();
-                users = JsonConvert.DeserializeObject<List<User>>(File.ReadAllText(@"....\Debug\Users\users.json")); //deserealize
+                users = JsonConvert.DeserializeObject<List<User>>(File.ReadAllText(@"Users\users.json")); //deserealize
             }
 
             private void BtnLogin_Click(object sender, RoutedEventArgs e)
