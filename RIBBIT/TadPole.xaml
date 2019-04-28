@@ -5,8 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RIBBIT"
         mc:Ignorable="d"
-        Title="TadPole" Height="450" Width="800">
+        Title="TadPole" Height="450" Width="800" Loaded="Window_Loaded">
     <Grid>
-        
+        <Button x:Name="btnCreatePost" Content="Create Post" HorizontalAlignment="Left" Margin="635,125,0,0" VerticalAlignment="Top" Width="90" Height="39" Click="btnCreatePost_Click"/>
+        <ListView x:Name="listviewPosts" HorizontalAlignment="Left" Height="275" Margin="40,85,0,0" VerticalAlignment="Top" Width="575">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
     </Grid>
 </Window>

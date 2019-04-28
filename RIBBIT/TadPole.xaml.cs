@@ -32,7 +32,8 @@ namespace RIBBIT
 
         private void btnCreatePost_Click(object sender, RoutedEventArgs e)
         {
-            //(Owner as MainWindow).OpenPost()
+            List<Post> posts = JsonConvert.DeserializeObject<List<Post>>(File.ReadAllText(@"....\Posts\Posts.json"));
+            (Owner as MainWindow).OpenPost(posts[],tadpole)
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)

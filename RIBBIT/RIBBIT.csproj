@@ -76,6 +76,9 @@
       <DependentUpon>signupWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Tadpole.cs" />
+    <Compile Include="TadPole.xaml.cs">
+      <DependentUpon>TadPole.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Upload.cs" />
     <Compile Include="User.cs" />
     <Compile Include="UserProfile.xaml.cs">
@@ -113,6 +116,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="signupWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TadPole.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

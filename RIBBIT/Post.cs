@@ -11,6 +11,7 @@ namespace RIBBIT
         public string title { get; set; }
         public string images { get; }
         public string video { get; }
+        public Tadpole dadPole { get; }
         public Post(string owner, int ID, string title, string images, string video, string content):
             base(owner,ID)
         {
